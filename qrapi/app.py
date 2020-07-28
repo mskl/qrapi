@@ -48,7 +48,7 @@ def document_upload():
 
 def validate_header_auth(headers):
     environment_secret = os.getenv('API_AUTHORIZATION_TOKEN')
-    assert headers.environ['HTTP_AUTHORIZATION'] in ["z1gqnzyzfgejehqaz9on", environment_secret],\
+    assert headers.environ['HTTP_AUTHORIZATION'] == environment_secret, \
         "Wrong authorization token."
 
 
