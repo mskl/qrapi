@@ -11,10 +11,6 @@ RUN pip3 install -r requirements.txt
 
 COPY qrapi/ /app/
 
-# TODO: Set the environment variable properly when deployed!
-ENV API_AUTHORIZATION_TOKEN=z1gqnzyzfgejehqaz9on
-ENV FLASK_ENV=development
-
 ENTRYPOINT [ "python3" ]
 
 CMD [ "app.py" ]
