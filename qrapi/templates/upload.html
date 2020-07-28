@@ -1,9 +1,13 @@
-<html>
-   <body>
-      <form action = "{{ url_for('upload_file') }}" method = "POST"
-         enctype = "multipart/form-data">
-         <input type = "file" name = "file" />
-         <input type = "submit"/>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload a PDF File</title>
+</head>
+<body>
+      <form action="{{ url_for('upload_file') }}" method="POST" enctype="multipart/form-data">
+         <input type="file" name = "file" />
+         <input type="submit"/>
       </form>
-   </body>
+</body>
 </html>

@@ -44,11 +44,6 @@ qreader = QReader()
 
 
 @app.route('/')
-def index():
-    return render_template('index.html')
-
-
-@app.route('/document_upload')
 def document_upload():
     return render_template('upload.html')
 
