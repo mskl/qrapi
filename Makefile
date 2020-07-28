@@ -2,7 +2,7 @@ build:
 	docker build -t qrapi-flask:latest .
 
 run-dev:
-	docker run -d -p 5001:5001 \
+	docker run -p 5001:5001 \
 		-e "API_AUTHORIZATION_TOKEN=z1gqnzyzfgejehqaz9on" \
 		-e "FLASK_ENV=development" \
 		-e "FLASK_RUN_HOST=0.0.0.0" \
