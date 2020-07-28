@@ -1,0 +1,8 @@
+werkzeug
+flask
+flask-restful
+pdf2image
+pillow
+pyqrcode
+pyzbar
+pdf2image
