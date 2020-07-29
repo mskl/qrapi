@@ -65,13 +65,16 @@ def upload_file():
         # Validate that the request has a known token
         validate_header_auth(request.headers)
 
-        return_dict = dict()
+        return_list = []
 
         # Process the all files with the QReader class
         for filename, file in request.files.items():
-            return_dict[filename] = qreader.get_qr(file=file)
+            return_list.append({
+                "name": filename,
+                "content": qreader.get_qr(file=file)
+            })
 
-        return jsonify(return_dict)
+        return jsonify(return_list)
 
     except Exception as e:
         json_abort(400, str(e))
