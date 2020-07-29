@@ -34,7 +34,7 @@ class QReader:
                 [{"type": _.type, "data": _.data.decode("ascii")} for _ in decode(image=page_img)]
             )
 
-        return jsonify(decoded)
+        return decoded
 
 
 # Instance of the QReader
@@ -65,9 +65,13 @@ def upload_file():
         # Validate that the request has a known token
         validate_header_auth(request.headers)
 
-        # Process the file with the QReader class
-        file = request.files['file']
-        return qreader.get_qr(file=file)
+        return_dict = dict()
+
+        # Process the all files with the QReader class
+        for filename, file in request.files.items():
+            return_dict[filename] = qreader.get_qr(file=file)
+
+        return jsonify(return_dict)
 
     except Exception as e:
         json_abort(400, str(e))
