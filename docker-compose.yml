@@ -1,0 +1,7 @@
+version: '3'
+
+services:
+  qrapi-flask:
+    build: .
+    volumes:
+      - '.qrapi/:/app/'

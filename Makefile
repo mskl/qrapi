@@ -10,7 +10,7 @@ run-dev:
 		qrapi-flask
 
 run:
-	docker run -d -p 5001:5001
+	docker run -d -p 5001:5001 \
 		-e "FLASK_RUN_HOST=0.0.0.0" \
 		-e "FLASK_RUN_PORT=5001" \
 		qrapi-flask
