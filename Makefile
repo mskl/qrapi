@@ -2,18 +2,10 @@ build:
 	docker build -t qrapi-flask:latest .
 
 run-dev:
-	docker run -p 5001:5001 \
-		-e "FLASK_RUN_HOST=0.0.0.0" \
-		-e "FLASK_RUN_PORT=5001" \
-		-e "API_AUTHORIZATION_TOKEN=secret" \
-		-e "FLASK_ENV=development" \
-		qrapi-flask
+	docker run -p 5001:5001 -e "FLASK_ENV=development" -e "API_AUTHORIZATION_TOKEN=secret" qrapi-flask
 
 run:
-	docker run -d -p 5001:5001 \
-		-e "FLASK_RUN_HOST=0.0.0.0" \
-		-e "FLASK_RUN_PORT=5001" \
-		qrapi-flask
+	docker run -d -p 5001:5001 qrapi-flask
 
 stop:
 	docker stop `docker ps -qf ancestor="qrapi-flask"`

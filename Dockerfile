@@ -9,7 +9,6 @@ WORKDIR /app
 
 RUN pip3 install -r requirements.txt
 
-# Directory is mounted in docker run
 COPY qrapi/ /app/
 
 ENTRYPOINT [ "python3" ]
