@@ -27,11 +27,29 @@ Example response when 3 files are sent, 2 of them with qr codes at the first pag
         "type": "EAN13"
       }
     ],
-    "name": "file"
+    "filename": "example.pdf",
+    "key": "somefile"
   },
   {
     "content": [],
-    "name": "file without qr"
+    "filename": "LSTM_fixed.pdf",
+    "key": "file[]"
+  },
+  {
+    "content": [
+      {
+        "data": "5499944158390",
+        "page": 0,
+        "type": "QRCODE"
+      },
+      {
+        "data": "5499944158390",
+        "page": 0,
+        "type": "EAN13"
+      }
+    ],
+    "filename": "example.pdf",
+    "key": "file[]"
   }
 ]
 ```

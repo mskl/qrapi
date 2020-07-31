@@ -68,11 +68,13 @@ def upload_file():
         return_list = []
 
         # Process the all files with the QReader class
-        for file in request.files.getlist("file[]"):
-            return_list.append({
-                "name": file.filename,
-                "content": qreader.get_qr(file=file)
-            })
+        for listname, filelist in request.files.lists():
+            for file in filelist:
+                return_list.append({
+                    "key": listname,
+                    "filename": file.filename,
+                    "content": qreader.get_qr(file=file),
+                })
 
         return jsonify(return_list)
 
