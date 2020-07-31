@@ -29,9 +29,9 @@ class QReader:
         )
 
         decoded = []
-        for page_img in pil_images:
-            decoded.append(
-                [{"type": _.type, "data": _.data.decode("ascii")} for _ in decode(image=page_img)]
+        for index, page_img in enumerate(pil_images):
+            decoded.extend(
+                [{"type": _.type, "data": _.data.decode("ascii"), "page": index} for _ in decode(image=page_img)]
             )
 
         return decoded

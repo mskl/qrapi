@@ -1,0 +1,44 @@
+[ for each file
+  [ one file
+    {
+      "content": [
+        [
+          {
+            "data": "5499944158390",
+            "type": "QRCODE"
+          },
+          {
+            "data": "5499944158390",
+            "type": "EAN13"
+          }
+        ]
+      ],
+      "name": "file1"
+    }
+  ],
+  [
+    {
+      "content": [
+        [
+          {
+            "data": "5499944158390",
+            "type": "QRCODE"
+          },
+          {
+            "data": "5499944158390",
+            "type": "EAN13"
+          }
+        ]
+      ],
+      "name": "file2"
+    }
+  ],
+  [
+    {
+      "content": [
+        []
+      ],
+      "name": "noqr"
+    }
+  ]
+]
