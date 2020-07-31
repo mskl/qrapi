@@ -68,9 +68,9 @@ def upload_file():
         return_list = []
 
         # Process the all files with the QReader class
-        for filename, file in request.files.items():
+        for file in request.files.getlist("file[]"):
             return_list.append({
-                "name": filename,
+                "name": file.filename,
                 "content": qreader.get_qr(file=file)
             })
 
