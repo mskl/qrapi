@@ -9,7 +9,7 @@ run-dev:
 		qrapi-flask
 
 run:
-	docker run -d -p 5001:5001 qrapi-flask
+	docker run -d -p ${PORT}:${PORT} qrapi-flask
 
 stop:
 	docker stop `docker ps -qf ancestor="qrapi-flask"`
