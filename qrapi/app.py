@@ -8,7 +8,7 @@ import pdf2image
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = '/tmp'
-app.config['DEBUG'] = True
+app.config['DEBUG'] = False
 
 
 class QReader:
@@ -64,7 +64,7 @@ def json_abort(status_code, message):
 def upload_file():
     try:
         # Validate that the request has a known token
-        # validate_header_auth(request.headers)
+        validate_header_auth(request.headers)
 
         return_list = []
 
