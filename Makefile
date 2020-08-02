@@ -1,13 +1,8 @@
 build:
 	docker build -t qrapi-flask:latest .
 
-.SILENT:
-setup:
-	echo "Run the following command:"
-	echo "source export_env_variables.sh"
-
 run-dev:
-	docker run -d -p "$(PORT):$(PORT)" \
+	docker run -d -p 5001:5001 \
 		-v "${CURDIR}/qrapi:/app" \
 		-e "FLASK_ENV=development" \
 		-e "API_AUTHORIZATION_TOKEN=secret" \
