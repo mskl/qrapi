@@ -2,8 +2,8 @@ from flask import Flask, request, render_template, abort, jsonify
 from werkzeug.datastructures import FileStorage
 from werkzeug.utils import secure_filename
 from pyzbar.pyzbar import decode
-import os
 import pdf2image
+import os
 
 
 app = Flask(__name__)
