@@ -2,17 +2,18 @@ from flask import Flask, request, render_template, abort, jsonify
 from werkzeug.datastructures import FileStorage
 from werkzeug.utils import secure_filename
 from pyzbar.pyzbar import decode
-import tempfile
 import os
 import pdf2image
 
 
 app = Flask(__name__)
+app.config['UPLOAD_FOLDER'] = '/tmp'
+app.config['DEBUG'] = True
 
 
 class QReader:
     def __init__(self):
-        self.tempdir = tempfile.gettempdir()
+        self.tempdir = "/tmp"
 
     def get_qr(self, file: FileStorage):
         filename = secure_filename(file.filename)
@@ -63,7 +64,7 @@ def json_abort(status_code, message):
 def upload_file():
     try:
         # Validate that the request has a known token
-        validate_header_auth(request.headers)
+        # validate_header_auth(request.headers)
 
         return_list = []
 

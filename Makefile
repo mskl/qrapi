@@ -16,3 +16,15 @@ stop:
 
 bash:
 	docker exec -it `docker ps -qf ancestor="qrapi-flask"` /bin/bash
+
+# Heroku CLI shortcuts
+heroku-deploy:
+	docker build -t registry.heroku.com/swapper-backend-qrapi/web .
+	docker push registry.heroku.com/swapper-backend-qrapi/web:latest
+	heroku container:release web -a swapper-backend-qrapi
+
+heroku-open:
+	heroku open -a swapper-backend-qrapi
+
+heroku-logs:
+	heroku logs -a swapper-backend-qrapi --tail
