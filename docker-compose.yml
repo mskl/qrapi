@@ -1,0 +1,9 @@
+version: '3'
+services:
+  qrapi-flask:
+    build: .
+    ports:
+      - 5001:5001
+    environment:
+      - FLASK_ENV=development
+      - API_AUTHORIZATION_TOKEN=secret
