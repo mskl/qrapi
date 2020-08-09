@@ -1,18 +1,15 @@
+# Docker compose shortcuts
 build:
-	docker build -t qrapi-flask:latest .
+	docker-compose build
 
-run-dev:
-	docker run -d -p 5001:5001 \
-		-v "${CURDIR}/qrapi:/app" \
-		-e "FLASK_ENV=development" \
-		-e "API_AUTHORIZATION_TOKEN=secret" \
-		qrapi-flask
+run: build
+	docker-compose up -d --remove-orphans
 
 stop:
-	docker stop `docker ps -qf ancestor="qrapi-flask"`
+	docker-compose down
 
 bash:
-	docker exec -it `docker ps -qf ancestor="qrapi-flask"` /bin/bash
+	docker-compose exec qrapi-flask bash
 
 # Heroku CLI shortcuts
 heroku-deploy:

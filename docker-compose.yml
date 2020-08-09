@@ -6,6 +6,7 @@ services:
       - 5001:5001
     volumes:
       - "./qrapi/:/app"
+    restart: always
     environment:
       - FLASK_ENV=development
       - API_AUTHORIZATION_TOKEN=secret

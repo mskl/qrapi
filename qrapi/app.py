@@ -8,7 +8,6 @@ import os
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = '/tmp'
-app.config['DEBUG'] = False
 
 
 class QReader:
@@ -44,7 +43,7 @@ qreader = QReader()
 
 @app.route('/')
 def document_upload():
-    return render_template('upload.html')
+    return render_template('upload.html', FLASK_ENV=os.environ.get("FLASK_ENV"))
 
 
 def validate_header_auth(headers):
