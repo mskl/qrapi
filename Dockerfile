@@ -12,6 +12,13 @@ RUN pip3 install -r requirements.txt
 
 COPY qrapi/ /app/
 
-ENTRYPOINT [ "python3" ]
+# gunicorn config is located in /misc folder
+COPY misc/gunicorn_config.py /misc/
 
-CMD [ "app.py" ]
+EXPOSE 5001
+
+# Use the following in production
+CMD ["/usr/local/bin/gunicorn", "-c", "/misc/gunicorn_config.py", "app:app"]
+
+# Use the following in development when debugging is needed
+# CMD ["python3", "app.py"]

@@ -11,6 +11,12 @@ stop:
 bash:
 	docker-compose exec qrapi-flask bash
 
+logs:
+	docker-compose logs -f
+
+rbash:
+	docker-compose run qrapi-flask bash
+
 # Heroku CLI shortcuts
 heroku-deploy:
 	docker build -t registry.heroku.com/swapper-backend-qrapi/web .
