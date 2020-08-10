@@ -1,0 +1,21 @@
+name: Pytest
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+    - uses: actions/checkout@v2
+
+    - name: Build a docker image
+      run: docker-compose build
+    
+    - name: Run Pytest
+      run: docker-compose run qrapi-flask pytest tests/
