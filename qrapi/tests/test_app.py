@@ -23,7 +23,7 @@ def client(app):
     ]
 )
 def test_upload_pdf(client, authorization, expected_code):
-    file_object = open('files/example_paylogic.pdf', 'rb')
+    file_object = open('/app/tests/files/example_paylogic.pdf', 'rb')
 
     headers = {
         'Authorization': authorization,
