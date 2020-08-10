@@ -15,8 +15,8 @@ COPY qrapi/ /app/
 # gunicorn config is located in /misc folder
 COPY misc/gunicorn_config.py /misc/
 
-# Use the following in production
-CMD ["/usr/local/bin/gunicorn", "-c", "/misc/gunicorn_config.py", "app:app"]
-
 # Use the following in development when debugging is needed
 # CMD ["python3", "app.py"]
+
+# Use the following in production
+CMD ["/usr/local/bin/gunicorn", "-c", "/misc/gunicorn_config.py", "app:app"]
