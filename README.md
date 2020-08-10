@@ -14,7 +14,7 @@ If you need to see the debug log use
 When in production, do not forget to set the required secrets:
 - `API_AUTHORIZATION_TOKEN`
 
-Sample website is hosted at [127.0.0.1/5001](127.0.0.1/5001)
+Sample website is hosted at [http://127.0.0.1/5001](http://127.0.0.1/5001)
 
 Example response when 3 files are sent, 2 of them with qr codes at the first page.
 ```json
