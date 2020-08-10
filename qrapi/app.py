@@ -53,8 +53,7 @@ def validate_header_auth(headers):
 
 
 def json_abort(status_code, message):
-    data = {'error': message}
-    response = jsonify(data)
+    response = jsonify({'error': message})
     response.status_code = status_code
     abort(response)
 
