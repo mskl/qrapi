@@ -1,5 +1,6 @@
-# qRAPi
-REST API to render PDF pages and extract QR codes from them.
+**QRAPI** - REST API to render PDF pages and extract QR codes from them.
+
+![Pytest](https://github.com/mskl/qrapi/workflows/Pytest/badge.svg?branch=master) 
 
 ### Usage
 When inside the directory, type
