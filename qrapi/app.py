@@ -34,7 +34,7 @@ class QReader:
                 [{"type": _.type, "data": _.data.decode("ascii"), "page": index} for _ in decode(image=page_img)]
             )
 
-        return decoded
+        return (decoded, len(pil_images))
 
 
 # Instance of the QReader
@@ -69,10 +69,13 @@ def upload_file():
         # Process the all files with the QReader class
         for listname, filelist in request.files.lists():
             for file in filelist:
+                content, num_pages = qreader.get_qr(file=file)
+
                 return_list.append({
                     "key": listname,
                     "filename": file.filename,
-                    "content": qreader.get_qr(file=file),
+                    "num_pages": num_pages,
+                    "content": content,
                 })
 
         return jsonify(return_list)
