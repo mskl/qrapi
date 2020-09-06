@@ -49,5 +49,6 @@ def test_upload_pdf(client, authorization, expected_code):
             'content': [{'data': '5499944158390', 'page': 0, 'type': 'QRCODE'},
                         {'data': '5499944158390', 'page': 0, 'type': 'EAN13'}],
             'filename': 'example_paylogic.pdf',
+            'num_pages': 1,
             'key': 'file[]'
         }]
