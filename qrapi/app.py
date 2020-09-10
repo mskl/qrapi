@@ -32,7 +32,13 @@ class QReader:
         decoded = []
         for index, page_img in enumerate(pil_images):
             decoded.extend(
-                [{"type": _.type, "data": _.data.decode("ascii"), "page": index} for _ in decode(image=page_img)]
+                [
+                    {
+                        "type": _.type,
+                        "data": _.data.decode("ascii"),
+                        "page": index
+                    } for _ in decode(image=page_img)
+                ]
             )
 
         return decoded, len(pil_images)
@@ -44,9 +50,9 @@ qreader = QReader()
 
 @app.route('/')
 def index():
+    # Only show the information index when flask environment is set to development
     flask_env = os.environ.get("FLASK_ENV")
     if flask_env == "development":
-        # Only show the information index when flask environment is set to development
         return render_template('index.html', FLASK_ENV=flask_env)
     else:
         abort(404)
