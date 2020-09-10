@@ -1,6 +1,7 @@
 # QRAPI - API for QR code extraction from PDFs 
 
-![Pytest](https://github.com/mskl/qrapi/workflows/Pytest/badge.svg?branch=master) 
+![Pytest](https://github.com/mskl/qrapi/workflows/Pytest/badge.svg?branch=master) ![Pytest](https://github.com/mskl/qrapi/workflows/Pytest/badge.svg?branch=develop)
+
 Dockerized Flask api with sole purpose of reading QR codes from PDFs. Decoding is done using `pdf2image` and `pyzbar` python libs.
 
 ## Structure
