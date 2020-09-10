@@ -6,10 +6,8 @@
 </head>
 <body>
     <h1>Wooooohooo! QRAPI is alive!</h1>
-    {% if FLASK_ENV == "development" %}
-        <h3>Warning! Development mode is on! FLASK_ENV is set to {{ FLASK_ENV }}!</h3>
-    {% endif %}
     <ul>
+        <li>FLASK_ENV is set to {{ FLASK_ENV }}!</li>
         <li>Do not forget to set proper Authorization token. To set it go to Settings > Config Vars on Heroku.</li>
         <li>Development ran from docker-compose uses "Authorization" token "secret".</li>
     </ul>
