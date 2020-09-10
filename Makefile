@@ -28,3 +28,8 @@ heroku-open:
 
 heroku-logs:
 	heroku logs -a swapper-backend-qrapi --tail
+
+# Upload the core image to dockerhub
+dockerhub:
+	docker build -t skalimat/qrapi -f misc/dockercore/Dockerfile .
+	docker push skalimat/qrapi
