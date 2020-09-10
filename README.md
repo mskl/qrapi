@@ -79,5 +79,5 @@ Example response when 3 files are sent, 2 of them with qr codes at the first pag
 ]
 ```
 
-## Pushing a new image to Dockerhub
+## Dockerhub integration
 To speed up the CI, we build our own image with both python and system requirements. This speeds up the CI pipeline as it just downloads the image instead of having to also build it locally. In order to upload the image (when we change/update dependencies), navigate to `Actions` > `Workflows` > `Build docker` and click the `Run workflow` button. This will build a new image with new dependencies and automatically push it to dockerhub.
