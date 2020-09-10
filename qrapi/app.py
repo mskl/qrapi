@@ -1,6 +1,7 @@
 from flask import Flask, request, render_template, abort, jsonify
 from werkzeug.datastructures import FileStorage
 from werkzeug.utils import secure_filename
+from werkzeug.exceptions import Unauthorized
 from pyzbar.pyzbar import decode
 import pdf2image
 import os
@@ -34,7 +35,7 @@ class QReader:
                 [{"type": _.type, "data": _.data.decode("ascii"), "page": index} for _ in decode(image=page_img)]
             )
 
-        return (decoded, len(pil_images))
+        return decoded, len(pil_images)
 
 
 # Instance of the QReader
@@ -48,8 +49,8 @@ def document_upload():
 
 def validate_header_auth(headers):
     environment_secret = os.getenv('API_AUTHORIZATION_TOKEN')
-    assert headers.environ['HTTP_AUTHORIZATION'] == environment_secret, \
-        "Wrong authorization token."
+    if headers.environ['HTTP_AUTHORIZATION'] != environment_secret:
+        raise Unauthorized("Wrong authorization token.")
 
 
 def json_abort(status_code, message):
@@ -80,6 +81,8 @@ def upload_file():
 
         return jsonify(return_list)
 
+    except Unauthorized as e:
+        json_abort(401, str(e))
     except Exception as e:
         json_abort(400, str(e))
 

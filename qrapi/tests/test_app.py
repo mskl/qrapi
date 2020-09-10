@@ -19,7 +19,7 @@ def client(app):
     ["authorization", "expected_code"],
     [
         [os.getenv('API_AUTHORIZATION_TOKEN'), 200],
-        ['thistokeniscompletelywrongandmocke', 400]
+        ['thistokeniscompletelywrongandmocke', 401]
     ]
 )
 def test_upload_pdf(client, authorization, expected_code):
