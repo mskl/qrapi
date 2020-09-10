@@ -43,8 +43,13 @@ qreader = QReader()
 
 
 @app.route('/')
-def document_upload():
-    return render_template('upload.html', FLASK_ENV=os.environ.get("FLASK_ENV"))
+def index():
+    flask_env = os.environ.get("FLASK_ENV")
+    if flask_env == "development":
+        # Only show the information index when flask environment is set to development
+        return render_template('index.html', FLASK_ENV=flask_env)
+    else:
+        abort(404)
 
 
 def validate_header_auth(headers):
