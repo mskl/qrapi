@@ -1,7 +1,4 @@
-FROM ubuntu:18.04
-
-RUN apt-get update -y && \
-    apt-get install -y python3.8 python3-pip zbar-tools poppler-utils
+FROM skalimat/qrapi:latest
 
 # Code is copied on build. In development, we mount a local folder over a copied one.
 COPY ./requirements.txt /app/requirements.txt
