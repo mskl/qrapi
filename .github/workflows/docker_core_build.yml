@@ -15,7 +15,7 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
 
     - name: Build core image
-      run: docker build -t skalimat/qrapi -f dockercore/Dockerfile .
+      run: docker build -t skalimat/qrapi -f misc/dockercore/Dockerfile .
 
     - name: Push core image to dockerhub
       run: docker push skalimat/qrapi
