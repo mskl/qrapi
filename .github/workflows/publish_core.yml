@@ -1,7 +1,5 @@
-name: BuildDockerCore
-
+name: Build docker core image
 on: [workflow_dispatch]
-
 jobs:
   build:
     runs-on: ubuntu-latest
