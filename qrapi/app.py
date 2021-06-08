@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template, abort, jsonify, Response
+from flask import Flask, request, render_template, abort, jsonify
 from werkzeug.datastructures import FileStorage
 from werkzeug.utils import secure_filename
 from werkzeug.exceptions import Unauthorized
