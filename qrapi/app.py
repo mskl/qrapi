@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template, abort, jsonify
+from flask import Flask, request, render_template, abort, jsonify, Response
 from werkzeug.datastructures import FileStorage
 from werkzeug.utils import secure_filename
 from werkzeug.exceptions import Unauthorized
@@ -68,6 +68,17 @@ def json_abort(status_code, message):
     response = jsonify({'error': message})
     response.status_code = status_code
     abort(response)
+
+
+@app.route('/echo', methods=['GET'])
+def echo():
+    try:
+        validate_header_auth(request.headers)
+        return jsonify({ 'status': 'ok' })
+    except Unauthorized as e:
+        abort(401)
+    except Exception as e:
+        abort(500)
 
 
 @app.route('/upload', methods=['POST'])
