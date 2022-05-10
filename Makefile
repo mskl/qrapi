@@ -17,17 +17,8 @@ logs:
 rbash:
 	docker-compose run qrapi-flask bash
 
-# Heroku CLI shortcuts
-heroku-deploy:
-	docker build -t registry.heroku.com/swapper-backend-qrapi/web .
-	docker push registry.heroku.com/swapper-backend-qrapi/web:latest
-	heroku container:release web -a swapper-backend-qrapi
-
-heroku-open:
-	heroku open -a swapper-backend-qrapi
-
-heroku-logs:
-	heroku logs -a swapper-backend-qrapi --tail
+deploy:
+	gcloud run deploy --source .
 
 # Upload the core image to dockerhub
 dockerhub:
