@@ -6,10 +6,8 @@ from pyzbar.pyzbar import decode
 import pdf2image
 import os
 
-
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = '/tmp'
-
 
 class QReader:
     def __init__(self):
@@ -69,6 +67,10 @@ def json_abort(status_code, message):
     response.status_code = status_code
     abort(response)
 
+@app.before_request
+def log_request():
+    app.logger.info('Content-Type: %s', request.headers['Content-Type'])
+
 
 @app.route('/echo', methods=['GET'])
 def echo():
@@ -106,7 +108,8 @@ def upload_file():
     except Unauthorized as e:
         json_abort(401, str(e))
     except Exception as e:
-        json_abort(400, str(e))
+        app.logger.error(e)
+        json_abort(500, str(e))
 
 
 if __name__ == '__main__':
