@@ -46,16 +46,6 @@ class QReader:
 qreader = QReader()
 
 
-@app.route('/')
-def index():
-    # Only show the information index when flask environment is set to development
-    flask_env = os.environ.get("FLASK_ENV")
-    if flask_env == "development":
-        return render_template('index.html', FLASK_ENV=flask_env)
-    else:
-        abort(404)
-
-
 def validate_header_auth(headers):
     environment_secret = os.getenv('API_AUTHORIZATION_TOKEN')
     if headers.environ['HTTP_AUTHORIZATION'] != environment_secret:
