@@ -33,7 +33,7 @@ class QReader:
                 [
                     {
                         "type": _.type,
-                        "data": _.data.decode("ascii"),
+                        "data": _.data.decode("utf-8"),
                         "page": index
                     } for _ in decode(image=page_img)
                 ]
